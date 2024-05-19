@@ -1,0 +1,38 @@
+<!-- login.html -->
+{% extends '../base.html' %}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block content %}
+<div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="row">
+        <div class="col-12">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Login to Continue
+                </div>
+                <div class="card-body">
+                    <form class="login-form" method="post" action="{% url 'account_login' %}">
+                        {% csrf_token %}
+                        <!-- <h2 class="text-center mb-4">Login</h2> -->
+                        <div class="mb-3">
+                            <!-- <label for="username" class="form-label">Username</label> -->
+                            <input type="text" id="username" name="login" class="form-control" placeholder="Username" required>
+                        </div>
+                        <div class="mb-3">
+                            <!-- <label for="password" class="form-label">Password</label> -->
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

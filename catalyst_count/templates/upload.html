@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Upload
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-6 mb-3 p-1">
+      <h4>Upload Data</h4>
+      <form id="uploadForm" method="post" enctype="multipart/form-data" class="mt-3">
+        {% csrf_token %}
+        <input class="form-control" type="file" id="fileInput" name="file">
+        <button type="button" id="startUploadBtn" class="btn btn-primary mt-3">Start Upload</button>
+        <button type="button" id="deleteDataBtn" class="btn btn-danger mt-3">Delete data</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <h5>Upload Progress</h5>
+    <div class="progress">
+      <div
+        class="progress-bar w-0"
+        role="progressbar"
+        aria-valuenow="0"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+    </div>
+  </div>
+  <div class="textbox mt-3"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static 'js/uploader.js' %}"></script>
+
+<script>
+  document.getElementById('startUploadBtn').addEventListener('click', function() {
+    var progressBar = document.querySelector('.progress-bar');
+    let fileIp = document.querySelector('#fileInput');
+    let uploader = new FileUpload(document.querySelector('#fileInput'))
+    uploader.upload();
+  });
+</script>
+{% endblock %}

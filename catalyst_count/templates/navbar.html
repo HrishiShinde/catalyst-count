@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f8f8f8;">
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" href="#">Catalyst</a> -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link {% if request.path == '/upload/' %}active{% endif %}" aria-current="page" href="/upload">
+          Upload Data
+        </a>
+        <a class="nav-link {% if request.path == '/query-builder/' %}active{% endif %}" href="/query-builder">Query Builder</a>
+        <a class="nav-link {% if request.path == '/users/' %}active{% endif %}" href="/users">Users</a>
+    </div>
+    <div class="navbar-nav ms-auto">
+      <span class="navbar-text me-3" style="font-weight: bold;">{{ user.username }}</span>
+      <a class="nav-link" href="{% url 'account_logout' %}">logout</a>
+    </div>
+    </div>
+  </div>
+</nav>

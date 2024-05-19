@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Query Builder
+{% endblock %}
+
+{% block content %}
+<div class="query-builder container mt-3">
+  <div class="row">
+    <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <div>
+          {{count}} records found for the query
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+  
+  <form method="GET" action="">
+    <div class="row">
+      <div class="col-4 mb-3">
+        <label class="form-label" for="keyword">Keyword</label>
+        <!-- <input type="text" id="keyword" name="keyword" class="form-control">
+        {{ form.keyword.label_tag }} -->
+        {{ form.keyword }}
+      </div>
+      <div class="col-4 mb-3">
+          <label class="form-label" for="industry">Industry</label>
+          <!-- <select id="industry" name="industry" class="form-control">
+          </select>
+          {{ form.industry.label_tag }} -->
+          {{ form.industry }}
+      </div>
+      <div class="col-4 mb-3">
+          <label class="form-label" for="year_founded">Year Founded</label>
+          <!-- <select id="year_founded" name="year_founded" class="form-control">
+          </select>
+          {{ form.year_founded.label_tag }} -->
+          {{ form.year_founded }}
+      </div>
+      <div class="col-4 mb-3">
+          <label class="form-label" for="city">City</label>
+          <!-- <select id="city" name="city" class="form-control">
+          </select>
+          {{ form.city.label_tag }} -->
+          {{ form.city }}
+      </div>
+      <div class="col-4 mb-3">
+          <label class="form-label" for="state">State</label>
+          <!-- <select id="state" name="state" class="form-control">
+          </select>
+          {{ form.state.label_tag }} -->
+          {{ form.state }}
+      </div>
+      <div class="col-4 mb-3">
+          <label class="form-label" for="country">Country</label>
+          <!-- <select id="country" name="country" class="form-control">
+          </select>
+          {{ form.country.label_tag }} -->
+          {{ form.country }}
+      </div>
+      <div class="col-4 mb-3">
+          <label class="form-label" for="employees_from">Employees (From)</label>
+          <!-- <select id="employees_from" name="employees_from" class="form-control">
+          </select>
+          {{ form.employees_from.label_tag }} -->
+          {{ form.employees_from }}
+      </div>
+      <div class="col-4 mb-3">
+          <label class="form-label" for="employees_to">Employees (To)</label>
+          <!-- <select id="employees_to" name="employees_to" class="form-control">
+          </select>
+          {{ form.employees_to.label_tag }} -->
+          {{ form.employees_to }}
+      </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Query Data</button>
+        <a class="btn btn-secondary" href="{% url 'query_builder' %}">Reset</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
